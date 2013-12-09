@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: file-share_development
+
+test:
+  adapter: postgresql
+  database: file-share_test
