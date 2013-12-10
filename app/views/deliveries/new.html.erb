@@ -1,0 +1,29 @@
+<h1>Send a Friend Some Files</h1>
+<% if @delivery.errors.any? %>
+  <h3>Please correct these problems:</h3>
+  <ul>
+    <% @delivery.errors.full_messages.each do |message| %>
+      <li class="alert alert-danger"><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+  <%= form_for @delivery, :html => {:multipart => true} do |main_form| %>
+    <%= main_form.label :name, 'Your name' %>
+    <%= main_form.text_field :name %>
+    <%= main_form.label :user_email, 'Your email' %>
+    <%= main_form.text_field :user_email %>
+    <%= main_form.label :recipient_email, 'Your friend\'s email' %>
+    <%= main_form.text_field :recipient_email %>
+    <%= main_form.label :message, 'Include a message for your friend' %>
+    <%= main_form.text_field :message %>
+    <div>
+      <%= main_form.fields_for :packages_attributes, @delivery.packages.new do |f| %>
+        <%= f.hidden_field :delivery_id %>
+        <div class="new_form">
+          <%= f.label :doc, 'Upload File' %>
+          <%= f.file_field :doc %>
+        </div>
+      <% end %>
+    </div>  
+  <%= main_form.submit "submit", :class => "btn btn-primary" %>
+<% end %>
