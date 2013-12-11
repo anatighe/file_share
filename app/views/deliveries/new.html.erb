@@ -17,7 +17,7 @@
     <%= main_form.label :message, 'Include a message for your friend' %>
     <%= main_form.text_field :message %>
     <div>
-      <%= main_form.fields_for :packages_attributes, @delivery.packages.new do |f| %>
+      <%= main_form.fields_for :packages, @delivery.packages.new do |f| %>
         <%= f.hidden_field :delivery_id %>
         <div class="new_form">
           <%= f.label :doc, 'Upload File' %>
