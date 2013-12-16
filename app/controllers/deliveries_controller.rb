@@ -4,7 +4,6 @@ class DeliveriesController < ApplicationController
   end
 
   def create
-
     @delivery = Delivery.new(delivery_params)
     if @delivery.save
       flash[:notice] = "Your delivery has been created."
@@ -22,6 +21,6 @@ class DeliveriesController < ApplicationController
 
 private
   def delivery_params
-    params.require(:delivery).permit(:name, :user_email, :recipient_email, :message, :packages => [:delivery_id, :doc])
+    params.require(:delivery).permit(:name, :user_email, :recipient_email, :message, packages_attributes: [:delivery_id, :doc])
   end
 end

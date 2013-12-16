@@ -1,0 +1,5 @@
+<%= main_form.fields_for :packages, @delivery.packages.new do |f| %>
+  <%= f.hidden_field :delivery_id %>
+  <%= f.label :doc, 'Upload File' %>
+  <%= f.file_field :doc %>
+<% end %>

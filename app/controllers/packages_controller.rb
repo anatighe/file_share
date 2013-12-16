@@ -17,10 +17,6 @@ class PackagesController < ApplicationController
     end
   end
 
-  def show
-    @package = Package.find(params[:id])
-  end
-
 private
   def package_params
     params.require(:package).permit(:doc, :delivery_id)
