@@ -1,0 +1,11 @@
+<h1>Shipment from <%= @shipment.name %> to <%= @shipment.recipient_email %></h1>
+<h3>Sent on <%= @shipment.created_at.strftime("Uploaded on %B %e, %Y") %></h3>
+<h3>Files included are:</h3>
+<ul>
+  <% @shipment.packages.each do |package| %>
+    <% if package.doc_file_name %>
+      <li><%= link_to package.doc_file_name, package.doc.url %> size: <%= package.doc_file_size %> bytes <%= package.doc_updated_at.strftime("Updated at %B %e, %Y") %></li>
+    <% end %>
+  <% end %>
+</ul>
+<h3><%= link_to "Send someone else some files", root_url %></h3>

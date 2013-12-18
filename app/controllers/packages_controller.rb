@@ -10,7 +10,7 @@ class PackagesController < ApplicationController
     @package = Package.new(package_params)
     if @package.save
       flash[:notice] = "Your package has been added."
-      redirect_to @package.delivery
+      redirect_to @package.shipment
     else
       flash[:alert] = "Something went wrong!"
       render :new
@@ -19,6 +19,6 @@ class PackagesController < ApplicationController
 
 private
   def package_params
-    params.require(:package).permit(:doc, :delivery_id)
+    params.require(:package).permit(:doc, :shipment_id)
   end
 end

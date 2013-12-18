@@ -1,8 +1,0 @@
-<h1>Delivery from <%= @delivery.name %> to <%= @delivery.recipient_email %></h1>
-<h3>Sent on <%= @delivery.created_at.strftime("Uploaded on %B %e, %Y") %></h3>
-<h3>Files included are:</h3>
-<ul>
-  <% @delivery.packages.each do |package| %>
-    <li><%= package.doc_file_name %> size: <%= package.doc_file_size %></li>
-  <% end %>
-</ul>

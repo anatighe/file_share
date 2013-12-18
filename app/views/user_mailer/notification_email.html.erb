@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to File Share. <%= @shipment.name %> has sent you some files.</h1>
+    <p>
+      To download your files, just follow this <%= link_to 'link', @url %>.
+      The files will be deleted 3 days after you access them.
+    </p>
+    <p>Have a great day!</p>
+  </body>
+</html>

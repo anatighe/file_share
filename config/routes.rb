@@ -1,7 +1,9 @@
 FileShare::Application.routes.draw do
-  resources :deliveries
+  resources :shipments, only: [:create]
   resources :packages
 
-  root :to => "deliveries#new"
+  match ':shipments/:token' => 'shipments#show', :via => :get
+
+  root :to => "shipments#new"
 end
 

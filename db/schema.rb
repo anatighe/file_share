@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209190244) do
+ActiveRecord::Schema.define(version: 20131217223623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "deliveries", force: true do |t|
+  create_table "packages", force: true do |t|
+    t.integer  "shipment_id"
+    t.string   "doc_file_name"
+    t.string   "doc_content_type"
+    t.integer  "doc_file_size"
+    t.datetime "doc_updated_at"
+  end
+
+  create_table "shipments", force: true do |t|
     t.string   "name"
     t.string   "user_email"
     t.string   "recipient_email"
@@ -24,14 +32,6 @@ ActiveRecord::Schema.define(version: 20131209190244) do
     t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "packages", force: true do |t|
-    t.integer  "delivery_id"
-    t.string   "doc_file_name"
-    t.string   "doc_content_type"
-    t.integer  "doc_file_size"
-    t.datetime "doc_updated_at"
   end
 
 end
