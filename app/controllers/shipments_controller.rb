@@ -18,6 +18,7 @@ class ShipmentsController < ApplicationController
   def show
     @shipment = Shipment.find_by_token(params[:token])
     @packages = @shipment.packages
+    UserMailer.user_notification_email(@shipment).deliver
   end
 
 private

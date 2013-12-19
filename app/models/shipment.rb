@@ -8,6 +8,10 @@ class Shipment < ActiveRecord::Base
   accepts_nested_attributes_for :packages, allow_destroy: true
   
   before_save :generate_token
+  
+  def time_left
+    72 - (Time.now - self.created_at).floor / 60 
+  end
 
 private
   def generate_token

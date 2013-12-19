@@ -11,7 +11,6 @@ class UserMailer < ActionMailer::Base
   def user_notification_email(shipment)
     @shipment = shipment
     
-    @url  = 'fileshare.herokuapp.com/shipments/' + @shipment.token
     mail(to: @shipment.user_email, subject: 'The files you send have been received')
   end
 end
