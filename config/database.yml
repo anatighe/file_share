@@ -1,7 +1,18 @@
 development:
   adapter: postgresql
   database: file-share_development
+  encoding: unicode
+  pool: 5
 
 test:
   adapter: postgresql
   database: file-share_test
+  
+production:
+  adapter: postgresql
+  database: <% ENV['FILESHARE_APP_DEV_DATABASE'] %>
+  username: <% ENV['FILESHARE_APP_DEV_PORT'] %>
+  password: <% ENV['FILESHARE_APP_DEV_USER'] %>
+  host: <% ENV['FILESHARE_APP_DEV_PASSWORD'] %>
+  port: <% ENV['FILESHARE_APP_DEV_DATABASE'] %>
+
