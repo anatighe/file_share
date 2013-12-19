@@ -2,6 +2,6 @@
 
 A file sharing app in Rails 4, similar to YouSendit.  
 
-Before running the app, run bundle install to install the necessary gems, rake db:create to create your database, and then rake db:schema:load to load the database schema.
+Before running the app, run `bundle install` to install the necessary gems, `rake db:create` to create your database, and then `rake db:schema:load` to load the database schema.
 
-To start the app, run rails s and type localhost:3000 into your browser.
+To start the app, run `rails s` and type `localhost:3000` into your browser.
